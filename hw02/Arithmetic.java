@@ -47,6 +47,7 @@ public class Arithmetic {
         //calculate total sales tax for each item type 
         //note: multiplied by 100 to prepare for upcoming conversion
         salestaxPants=totalPantsCost*paSalesTax*100;
+        
         salestaxShirt=totalShirtCost*paSalesTax*100;
         salestaxBelt=totalBeltCost*paSalesTax*100;
         
