@@ -14,13 +14,16 @@ public class Pyramid {
         Scanner myScanner; //declare
         myScanner=new Scanner(System.in); //construct
         
+        //ask for input values for sides and height of pyramid and store in variables
         System.out.println("The square side of a pyramid is (input value): ");
         double SquareLength=myScanner.nextDouble();
         System.out.println("The height of a pyramid is (input value): ");
         double Height=myScanner.nextDouble();
         
+        //calculate volume from input values and assign to new variable
         double Volume=(SquareLength*SquareLength*Height)/3;
         
+        //print value calculated
         System.out.println("The volume is: "+Volume);
                 
     }   //end of main method
