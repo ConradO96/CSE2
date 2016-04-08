@@ -13,7 +13,7 @@ public class Games {
         
         Random randomGenerator = new Random();
         Scanner input; //declare
-        input=new Scanner(System.in); //construct
+        input=new Scanner(System.in); //construct 
         
         System.out.println("Welcome to Conrad Game Center");
         System.out.println("What would you like to play? Enter: guessTheBox, spinTheWheel, or scrambler.");
@@ -187,4 +187,3 @@ public class Games {
     }
 ///////////////////////////////////////////////////////////
 }
-    
