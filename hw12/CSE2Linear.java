@@ -101,7 +101,7 @@ public class CSE2Linear {
         
         System.out.println();//spacing
 
-        System.out.print("The shuffled grades are: ")
+        System.out.print("The shuffled grades are: ");
         shuffleArray(studentGrades);//shuffles the grades in a seperate method
         for (int i=1; i<16; i++){//for loop prints the shuffled grades
             System.out.print(studentGrades[i] + " ");
