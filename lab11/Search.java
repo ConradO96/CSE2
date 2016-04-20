@@ -1,6 +1,6 @@
 //Conrad Ozarek
 //Lab10
-//April 15, 2015
+//April 15, 2016
 
 import java.util.Random;
 import java.util.Scanner; //import
