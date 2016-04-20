@@ -30,7 +30,26 @@ int index,target;
   	System.out.println(out);
 
   	System.out.print("Enter the index ");
-  	index = scan.nextInt();
+///////////////////////////////////////////////// I INPUT CODE HERE TO CHECK IF INPUT IS VALID
+		index=0;
+  	boolean acceptableInput=false; //set bool valaue to false
+        while (!acceptableInput){
+                if ( scan.hasNextInt() ){ //check if input is an int
+                    index=scan.nextInt(); //if it is assign it to searchFirst
+                    if (index>9 || index<0){ //check if input fits to bounds 0-9
+                        acceptableInput=false; //if not ask again for input
+                        System.out.println("Error: Enter a proper index.");
+                    }
+                    else {
+                        acceptableInput=true; //if valid input escapee the while loop with new value for length
+                    }
+                }
+                else { //else if not an int entered, ask again
+                    System.out.println("Error: Please type an integer. (1-9) ");
+                    scan.next();
+                }
+            }//end of while for input
+///////////////////////////////////////////////// END OF INPUT CODE
   	newArray1 = delete(num,index);
   	String out1="The output array is ";
   	out1+=listArray(newArray1); //return a string of the form "{2, 3, -9}"  
