@@ -1,11 +1,6 @@
 //Conrad Ozarek
 //HW 11
-//April 17, 2016
-
-/*
-    Since the hw 12 posted on course site had a description that did not match the hint nor the sample output, 
-    this program is based solely on the description, as I talked to Professor Chen and did not get a response that says to do otherwise
-*/
+//April 21, 2016
 
 import java.util.Random;
 import java.util.Scanner; //import
@@ -20,11 +15,11 @@ public class CSE2Linear {
 
         int[] studentGrades=new int[16]; //create an array for student grades
         studentGrades[0]=0; //starts with zero to make sure first value it greater than or equal to it. will be excluded from the grades in the end
+        System.out.println("Enter 15 ascending ints for final grades in CSE2");
         for (int i=1;i<16;i++){ //for loop to ask for input of grades
             
             Scanner input; //declare
             input=new Scanner(System.in); //construct
-        
             boolean acceptableGrade=false; //set bool valaue to false
             System.out.print("Enter a grade: ");
             while (!acceptableGrade){
@@ -83,26 +78,16 @@ public class CSE2Linear {
                     input.next();
                 }
             }//end of while for input
-        System.out.println();
-        int found = 0; //temporary value saying the value is not found
-        for (int i=1;i<16; i++){ //for loop to pass through all the elements of the array
-            if (studentGrades[i]==searchFirst){ //condition if value is found
-                System.out.println("The number was found after "+i+" iterations.");
-                found=1;
-                break; //if found leave the for loop
-            }
-            //else if(studentGrades[i] != searchFirst && i==15){
-            //    System.out.println("The numberwas not found after 15 iterations.");
-            //}
-        }
-        if (found==0){//otherwise if for loop finishes without being found, print the following
-            System.out.println("The numberwas not found after 15 iterations.");
-        }
+        System.out.println();//spacing
+        
+        binarySearch(studentGrades, searchFirst); //goes to method for binary Search
         
         System.out.println();//spacing
-
+        
         System.out.print("The shuffled grades are: ");
+        
         shuffleArray(studentGrades);//shuffles the grades in a seperate method
+        
         for (int i=1; i<16; i++){//for loop prints the shuffled grades
             System.out.print(studentGrades[i] + " ");
         }
@@ -131,17 +116,8 @@ public class CSE2Linear {
                 }
             }
         System.out.println();//spacing
-        int foundTwo = 0;
-        for (int i=1;i<16; i++){ //for loop to pass through all elements of array
-            if (studentGrades[i]==searchSecond){ //condition to see if input number is found in array
-                System.out.println("The number was found after "+i+" iterations.");
-                foundTwo=1;
-                break; // if it is print the message and leave the loop
-            }
-        }
-        if (foundTwo==0){ //otherwise if loop finishes and it is not found, print the following
-            System.out.println("The numberwas not found after 15 iterations.");
-        }
+        
+        linearSearch(studentGrades, searchSecond); //goes to linearSearch method with the shuffled array and input value to search for
     }
     
     static void shuffleArray(int[] array){ //method for shuffling
@@ -152,4 +128,47 @@ public class CSE2Linear {
             array[i]=temp; //replace the element at i with the one i was relacing to perform a swap
         }
     }
+    
+    static void binarySearch(int[] array,int input){
+        
+        int a=0;//lower bound of array
+        int b=14;//upper bound of array
+        int m;//will represent middle value
+        int count=0;//counter for itterations used to find value
+        while (a<b){
+            m=((a+b)/2); //calculates the middle of both bounds a and b
+            if (input>array[m]){ //if the value is less than the one we are searching for
+                a=m+1;//set new bound for a to get upper half of the previous bound
+                count++; //add count to itteration
+            }
+            else { //otherwise must be in lower bound
+                b=m;//set upper bound to be the half of previous boound
+                count++; //add one to itteration count
+            }
+            if (array[a]==input){//if the input is found in array
+                break;//leave for loop
+            }
+        }
+        if (array[a] == input){//if number was found
+            System.out.println("Number was foud after "+count+" iterations.");
+        }
+        else {//if not found
+            System.out.println("Number was not foud after "+count+" iterations.");
+        }
+    }
+    
+    static void linearSearch(int[] array,int input){
+        int foundTwo = 0;
+        for (int i=1;i<16; i++){ //for loop to pass through all elements of array
+            if (array[i]==input){ //condition to see if input number is found in array
+                System.out.println("The number was found after "+i+" iterations.");
+                foundTwo=1;
+                break; // if it is print the message and leave the loop
+            }
+        }
+        if (foundTwo==0){ //otherwise if loop finishes and it is not found, print the following
+            System.out.println("The numberwas not found after 15 iterations.");
+        }
+    }
+    
 }   //end of class
