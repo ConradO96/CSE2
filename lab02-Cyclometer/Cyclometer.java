@@ -35,7 +35,7 @@ public class Cyclometer {
             //converts the value and continues the calculation for the total distance of the first trip
             distanceTrip2=countsTrip2*wheelDiameter*PI/inchesPerFoot/feetPerMile;
             //sets a value to the distance of trip 2 by using other variables with values and a calculation
-            totalDistance=distanceTrip1+distanceTrip2
+            totalDistance=distanceTrip1+distanceTrip2;
             //sets a value for the total distance by taking the sum of the first and second trip
             
             System.out.println("Trip 1 was "+distanceTrip1+" miles.");
